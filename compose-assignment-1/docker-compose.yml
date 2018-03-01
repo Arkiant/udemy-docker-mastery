@@ -1,0 +1,17 @@
+version : '3'
+
+services:
+  drupal:
+    image: drupal:8.4.5-apache
+    ports:
+      - 8080:80
+    volumes:
+      - ./store/modules:/var/www/html/modules
+      - ./store/profiles:/var/www/html/profiles
+      - ./store/themes:/var/www/html/themes
+      - ./store/sites:/var/www/html/sites
+
+  postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_PASSWORD=olakase
